@@ -35,7 +35,7 @@ public class SmartPhone {
 
     @Override
     public String toString() {
-        return "Telefono (Marca = " + marca + " Modelo= " + modelo + " Precio= " + precio + ")";
+        return "Telefono (Marca:" + marca + "  Modelo:" + modelo + "  Precio= " + precio + ")";
     }
 }
 
