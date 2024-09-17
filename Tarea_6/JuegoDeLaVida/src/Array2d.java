@@ -20,6 +20,4 @@ public class Array2d {
     public int getCols() {
         return grid[0].length;
     }
-
-    // Métodos adicionales según sea necesario
 }

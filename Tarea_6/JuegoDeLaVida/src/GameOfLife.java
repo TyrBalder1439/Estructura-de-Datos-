@@ -3,17 +3,13 @@ public class GameOfLife {
     private int rows;
     private int cols;
 
-    // Constructor para una rejilla de 8x8
     public GameOfLife(int rows, int cols) {
         this.rows = rows;
         this.cols = cols;
         grid = new Array2d(rows, cols);
-        initializeGrid();  // Inicializa la rejilla con una configuración inicial
+        initializeGrid();
     }
-
-    // Método para inicializar la rejilla con una configuración inicial
     private void initializeGrid() {
-        // Configuración inicial de células vivas (1) y muertas (0) en una matriz de 8x8
         grid.set(1, 1, 1);
         grid.set(1, 2, 1);
         grid.set(1, 3, 1);
@@ -26,48 +22,39 @@ public class GameOfLife {
         grid.set(5, 3, 1);
         grid.set(6, 3, 1);
     }
-
-    // Método para calcular la siguiente generación
     public void nextGeneration() {
         Array2d newGrid = new Array2d(rows, cols);
 
         for (int row = 0; row < rows; row++) {
             for (int col = 0; col < cols; col++) {
                 int liveNeighbors = countLiveNeighbors(row, col);
-
-                // Aplicar reglas del juego
-                if (grid.get(row, col) == 1) {  // Célula viva
+                if (grid.get(row, col) == 1) {
                     if (liveNeighbors == 2 || liveNeighbors == 3) {
-                        newGrid.set(row, col, 1);  // La célula sobrevive
+                        newGrid.set(row, col, 1);
                     } else {
-                        newGrid.set(row, col, 0);  // Muere por soledad o sobrepoblación
+                        newGrid.set(row, col, 0);
                     }
                 } else {  // Célula muerta
                     if (liveNeighbors == 3) {
-                        newGrid.set(row, col, 1);  // Nace una nueva célula
+                        newGrid.set(row, col, 1);
                     } else {
-                        newGrid.set(row, col, 0);  // Permanece muerta
+                        newGrid.set(row, col, 0);
                     }
                 }
             }
         }
-
-        // Actualizar la rejilla a la nueva generación
         grid = newGrid;
     }
-
-    // Método para contar los vecinos vivos alrededor de una célula
     private int countLiveNeighbors(int row, int col) {
         int liveNeighbors = 0;
 
         for (int i = -1; i <= 1; i++) {
             for (int j = -1; j <= 1; j++) {
-                if (i == 0 && j == 0) continue;  // Saltar la célula actual
+                if (i == 0 && j == 0) continue;
 
                 int newRow = row + i;
                 int newCol = col + j;
 
-                // Verificar los límites de la rejilla
                 if (newRow >= 0 && newRow < rows && newCol >= 0 && newCol < cols) {
                     liveNeighbors += grid.get(newRow, newCol);
                 }
@@ -75,8 +62,6 @@ public class GameOfLife {
         }
         return liveNeighbors;
     }
-
-    // Método para imprimir la rejilla en la consola
     public void printGrid() {
         for (int row = 0; row < rows; row++) {
             for (int col = 0; col < cols; col++) {
