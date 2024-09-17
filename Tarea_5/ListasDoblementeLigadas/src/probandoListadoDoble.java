@@ -2,6 +2,7 @@ public class probandoListadoDoble {
     public static void main(String[] args) {
         DoubleLinkedList<Integer> lista = new DoubleLinkedList<>();
 
+
         lista.agregarAlInicio(50);
 
         lista.agregarAlFinal(60);
