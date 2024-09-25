@@ -10,7 +10,7 @@ public class BalanceoParentesisLlaves {
                 pila.push(c);
             } else if (c == '}' || c == ')') {
                 if (pila.isEmpty()) {
-                    return false; 
+                    return false;
                 }
                 char tope = pila.peek();
                 if ((c == '}' && tope != '{') || (c == ')' && tope != '(')) {

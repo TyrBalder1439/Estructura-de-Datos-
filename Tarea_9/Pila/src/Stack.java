@@ -18,11 +18,9 @@ public class Stack<T> {
     public boolean isEmpty() {
         return tope == null;
     }
-
     public int length() {
         return tamano;
     }
-
     public T pop() {
         if (isEmpty()) {
             throw new IllegalStateException("La pila está vacía");
