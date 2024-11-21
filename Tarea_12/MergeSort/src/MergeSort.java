@@ -5,6 +5,7 @@ public class MergeSort {
         if (data.length > 1) {
             int mitad = data.length / 2;
 
+
             int[] izquierda = Arrays.copyOfRange(data, 0, mitad);
             int[] derecha = Arrays.copyOfRange(data, mitad, data.length);
 

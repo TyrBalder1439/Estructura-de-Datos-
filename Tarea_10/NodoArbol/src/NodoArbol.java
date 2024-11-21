@@ -9,6 +9,7 @@ public class NodoArbol<T> {
         }
 
         public NodoArbol(T dato) {
+
             this.dato = dato;
         }
 
@@ -27,6 +28,7 @@ public class NodoArbol<T> {
         }
 
         public NodoArbol<T> getHijoIzquierdo() {
+
             return hijoIzquierdo;
         }
 
